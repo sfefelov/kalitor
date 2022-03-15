@@ -17,3 +17,16 @@ proxychains4 curl ifconfig.me
 systemctl enable tor   
 
 apt install shadowsocks-libev
+nano /etc/shadowsocks-libev/config.json
+#{
+#    "server":["::0", "0.0.0.0"],
+#    "mode":"tcp_and_udp",
+#    "server_port":8388,
+#    "local_port":1111,
+#    "password":"password",
+#    "timeout":600,
+#    "method":"aes-128-gcm",
+#    "nameserver":"8.8.8.8"
+#}
+
+systemctl start shadowsocks-libev
