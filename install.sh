@@ -29,4 +29,9 @@ nano /etc/shadowsocks-libev/config.json
 #    "nameserver":"8.8.8.8"
 #}
 
+
+proxychains ss-server -c /etc/shadowsocks-libev/config.json
+nano /lib/systemd/system/shadowsocks-libev.service
+#edit add proxychains before /usr/.....
+systemctl daemon-reload 
 systemctl start shadowsocks-libev
