@@ -42,17 +42,21 @@ systemctl restart sshd
 systemctl enable sshd
 
 apt install stunnel4
-sudo mkdir /var/lib/stunnel4/certs
-sudo mkdir /var/lib/stunnel4/crls
+mkdir /var/lib/stunnel4/certs
+mkdir /var/lib/stunnel4/crls
 touch /var/lib/stunnel4/stunnel.log
 chown stunnel4:stunnel4 /var/lib/stunnel4/stunnel.log
 nano /etc/stunnel/stunnel.conf
-###
+#[test]
+#client = yes
+#accept = 8989
+#connect = mail.ru:443
 
 openssl req -nodes -new -days 365 -newkey rsa:1024 -x509 -keyout serverkey.pem -out servercert.pem
 mv serverkey.pem /etc/stunnel/
 mv servercert.pem /etc/stunnel/
-
+systemctl start stunnel4
+systemctl enable stunnel4 
 
 
 
