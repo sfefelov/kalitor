@@ -38,6 +38,7 @@ systemctl start shadowsocks-libev
 systemctl enable shadowsocks-libev
 
 !!!apt install simple-obfs
+setcap 'cap_net_bind_service=+ep' /usr/bin/ss-server
 nano /etc/shadowsocks-libev/config.json
 #"plugin":"obfs-server",
 #"plugin_opts":"obfs=http;failover=204.79.197.200:80"
